@@ -1,12 +1,12 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Executing Frontend'
-                sh 'npm install'
-            }
-        }
+  agent any
+  tools {nodejs "Node"}
+  stages {
+    stage('Build') {
+      steps {
+        git branch: 'main', url: 'https://github.com/RachanaMeda/Movie-App.git'
+        sh 'npm install'
+      }
     }
+}
 }
